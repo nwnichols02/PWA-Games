@@ -2,12 +2,15 @@ import { useState } from 'react'
 import reactLogo from '../public/icons/react.svg'
 import viteLogo from '../public/icons/vite.svg'
 import './App.css'
+import TodoList from './features/todos/TodoList'
+// import SecondTodoList from './features/todos/SecondTodoList'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    {/* <SecondTodoList /> */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -28,6 +31,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <TodoList />
     </>
   )
 }
