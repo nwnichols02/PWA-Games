@@ -13,14 +13,16 @@ import {
 
 // import { QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
+import { BrowserRouter as Router } from "react-router-dom";
 const queryClient = new QueryClient() // Create a client
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={true} />
-      <App />
+      <ReactQueryDevtools initialIsOpen={false} />
+      <Router>
+        <App />
+      </Router>
     </QueryClientProvider>
   </React.StrictMode>,
 )

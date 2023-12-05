@@ -1,37 +1,44 @@
 import { useState } from 'react'
-import reactLogo from '../public/icons/react.svg'
-import viteLogo from '../public/icons/vite.svg'
-import './App.css'
-import TodoList from './features/todos/TodoList'
+// import './App.css'
+import routes from './constants/routes.constant'
+import { Suspense, useEffect } from 'react'
+// import { usePreload } from './hooks/usePreload'
+import { SplashScreen, StaticSplashScreen } from './pages/SplashScreen.component'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home.component'
+import NavBar from './components/Atoms/NavBar.component'
 // import SecondTodoList from './features/todos/SecondTodoList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
+
+  // usePreload({});
+
+  // if (loading) {
+  //   return <SplashScreen />;
+  // }
   return (
     <>
-    {/* <SecondTodoList /> */}
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <TodoList />
+    <NavBar/>
+      <Suspense fallback={<StaticSplashScreen />}>
+        <div>
+          {/* {<SignIn /> : */}
+          <div style={{ marginTop: "4rem" }}>
+            <div>
+              <Routes>
+                <Route path={routes.Home.path} Component={Home} />
+              </Routes>
+            </div>
+          </div>
+          {/* } */}
+        </div>
+      </Suspense>
     </>
   )
 }
