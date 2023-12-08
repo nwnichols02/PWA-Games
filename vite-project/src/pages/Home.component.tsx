@@ -1,8 +1,53 @@
-import { Paper, Button, Grid, Typography, Box } from '@mui/material'
-import React from 'react'
+import { Button, Paper, TextField } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import Hero from '../components/Hero.component'
 
 const Home = () => {
+    const [messages, setMessages] = useState("");
+    const [socketMessages, setSocketMessages] = useState([]);
+
+
+
+    useEffect(() => {
+        const socket = new WebSocket('ws://localhost:3002');
+
+        socket.addEventListener('message', (event) => {
+            console.log('Message from server: ', event.data);
+        });
+
+
+    }, []);
+
+    const socket = new WebSocket('ws://localhost:3002');
+    socket.addEventListener('open', (event) => {
+        console.log('Connected to the server');
+        socket.send('Hello, server!');
+    });
+
+    socket.addEventListener('message', (event) => {
+        console.log('Message from server: ', event.data);
+    });
+    const handleChange = (data) => {
+        console.log(data)
+        setMessages(data);
+    }
+
+    function sendMessage(e) {
+        e.preventDefault();
+        if (!messages && messages !== "") return;
+        socket.send(messages);
+        setMessages('')
+    }
+
+    const handleSubmit = (e) => {
+        sendMessage(e);
+    }
+
+    socket.addEventListener("message", ({ data }) => {
+        console.log(data)
+        setSocketMessages(data);
+    });
+
     return (
         <div>
             <Paper elevation={0} sx={{ height: '300vh' }}>
@@ -41,6 +86,16 @@ const Home = () => {
                         </Box>
                     </Paper>
                 </Grid> */}
+                WebSocket
+                <form>
+                    <TextField id="outlined-basic" label="Outlined" variant="outlined" placeholder='Type your message' onChange={(e) => handleChange(e.target.value)} />
+                    <Button onSubmit={(e: any
+                    ) => { handleSubmit(e); e.preventDefault() }} type="submit">Send</Button>
+                </form>
+                <ul id="messages">
+                    {socketMessages.map((message, index) => <li key={index}>{message}</li>)}
+                </ul>
+
                 <Hero />
             </Paper>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Grid, Box, Typography, Button } from '@mui/material';
+import { Container, Grid, Box, Typography } from '@mui/material';
+import Button from "./Atoms/Button/Button.component";
 
 const Hero = () => {
     return (
@@ -24,10 +25,10 @@ const Hero = () => {
                         <img src="https://images.unsplash.com/photo-1511285605577-4d62fb50d2f7?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="home" style={{ width: '50%', maxHeight: '50%', objectFit: 'cover', padding: '3rem' }} />
                         <Box display="flex" justifyContent="center">
                             
-                            <Button variant="contained" color="primary" style={{ marginRight: '1rem' }}>
+                            <Button id='free' variant="contained" color="primary" style={{ marginRight: '1rem' }}>
                                 Start free trial
                             </Button>
-                            <Button variant="contained" color="secondary">
+                            <Button id='learn' variant="contained" color="secondary">
                                 Learn more
                             </Button>
                         </Box>
@@ -48,7 +49,7 @@ const Hero = () => {
                                         Suspendisse aliquam tellus ante, porttitor mattis diam eleifend quis. Pellentesque pulvinar commodo eros sit amet finibus.
                                     </Typography>
                                     <Box mt={3}>
-                                        <Button variant="contained" color="secondary" fullWidth>
+                                        <Button id='action' variant="contained" color="secondary" fullWidth>
                                             Action
                                         </Button>
                                         <Typography component="a" color="primary">
