@@ -1,52 +1,35 @@
 import { Button, Paper, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Hero from '../components/Hero.component'
+import io, { Socket } from 'socket.io-client';
+import MessageInput from '../components/MessageInput';
+import Messages from '../components/Messages';
 
 const Home = () => {
-    const [messages, setMessages] = useState("");
-    const [socketMessages, setSocketMessages] = useState([]);
-
-
+    const [socket, setSocket] = useState<Socket>();
+    // const [message, setMessage] = useState<string[]>([]);
+    const [messages, setMessages] = useState<string[]>([]);
 
     useEffect(() => {
-        const socket = new WebSocket('ws://localhost:3002');
+        const newSocket = io('http://localhost:8001');
+        setSocket(newSocket);
+    }, [setSocket]);
 
-        socket.addEventListener('message', (event) => {
-            console.log('Message from server: ', event.data);
-        });
-
-
-    }, []);
-
-    const socket = new WebSocket('ws://localhost:3002');
-    socket.addEventListener('open', (event) => {
-        console.log('Connected to the server');
-        socket.send('Hello, server!');
-    });
-
-    socket.addEventListener('message', (event) => {
-        console.log('Message from server: ', event.data);
-    });
-    const handleChange = (data) => {
-        console.log(data)
-        setMessages(data);
+    const send = (value: string) => {
+        socket?.emit('message', value);
     }
 
-    function sendMessage(e) {
-        e.preventDefault();
-        if (!messages && messages !== "") return;
-        socket.send(messages);
-        setMessages('')
+    const messageListener = (message: string) => {
+        setMessages([...messages, message])
     }
 
-    const handleSubmit = (e) => {
-        sendMessage(e);
-    }
+    useEffect(() => {
+        socket?.on('message', messageListener);
+        return () => {
+            socket?.off('message', messageListener);
+        }
+    }, [messageListener]);
 
-    socket.addEventListener("message", ({ data }) => {
-        console.log(data)
-        setSocketMessages(data);
-    });
 
     return (
         <div>
@@ -87,13 +70,9 @@ const Home = () => {
                     </Paper>
                 </Grid> */}
                 WebSocket
-                <form>
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" placeholder='Type your message' onChange={(e) => handleChange(e.target.value)} />
-                    <Button onSubmit={(e: any
-                    ) => { handleSubmit(e); e.preventDefault() }} type="submit">Send</Button>
-                </form>
-                <ul id="messages">
-                    {socketMessages.map((message, index) => <li key={index}>{message}</li>)}
+                <MessageInput send={send} />
+                <ul id="messages" style={{ height: "100px" }}>
+                    <Messages messages={messages} />
                 </ul>
 
                 <Hero />
