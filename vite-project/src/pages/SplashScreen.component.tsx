@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "../styles/signIn.css"
-import 'animate.css';
+// import "../styles/signIn.css"
+// import 'animate.css';
 
 export const SplashScreen = () => {
     return (
