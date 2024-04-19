@@ -1,0 +1,418 @@
+import { Tooltip } from "@mui/material";
+
+export const realDummyData = [
+    {
+        "DriverLicenseInfoId": 1,
+        "DriverName": "Jonathon Doe",
+        "LicenseNumber": "A12345678910",
+        "LicenseStatus": "Revoked",
+        "DriverLicenseClass": "CDL",
+        "DriverLicenseClassId": null,
+        "CdlType": "D",
+        "LicenseExpiration": 1641106056,
+        "MedCertExpiration": 1577947656,
+        "DriverStatus": "Borderline",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 2,
+                "Title": "P",
+                "Notes": "Missouri CDL Passenger Vehicles"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704733044,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704987771,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 2,
+        "DriverName": "Jeremy Doe",
+        "LicenseNumber": "B123456",
+        "LicenseStatus": "Suspended",
+        "DriverLicenseClass": "Class F",
+        "DriverLicenseClassId": null,
+        "CdlType": "B",
+        "LicenseExpiration": 123123,
+        "MedCertExpiration": 123123,
+        "DriverStatus": "Borderline",
+        "StateName": "Illinois",
+        "DriverStateId": null,
+        "Endorsements": [],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704737959,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704746060,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 6,
+        "DriverName": "Chips",
+        "LicenseNumber": "123abcdefg",
+        "LicenseStatus": "Suspended",
+        "DriverLicenseClass": "Motorcycle",
+        "DriverLicenseClassId": null,
+        "CdlType": "C",
+        "LicenseExpiration": 35284,
+        "MedCertExpiration": 23424,
+        "DriverStatus": "Acceptable",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704840223,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": null,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 7,
+        "DriverName": "Joe New Driver",
+        "LicenseNumber": "123321321",
+        "LicenseStatus": "Valid",
+        "DriverLicenseClass": "Motorcycle",
+        "DriverLicenseClassId": null,
+        "CdlType": "A",
+        "LicenseExpiration": 1704842303,
+        "MedCertExpiration": 1704842303,
+        "DriverStatus": "Clear",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704842305,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": null,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 10,
+        "DriverName": "Repo Refactor",
+        "LicenseNumber": "456123",
+        "LicenseStatus": "123456",
+        "DriverLicenseClass": "Class F",
+        "DriverLicenseClassId": null,
+        "CdlType": "A",
+        "LicenseExpiration": 123456,
+        "MedCertExpiration": 123456,
+        "DriverStatus": "Clear",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 2,
+                "Title": "P",
+                "Notes": "Missouri CDL Passenger Vehicles"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704865686,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704865801,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 11,
+        "DriverName": "Rollback Test 2",
+        "LicenseNumber": "Test123",
+        "LicenseStatus": "Valid",
+        "DriverLicenseClass": "Class F",
+        "DriverLicenseClassId": null,
+        "CdlType": "B",
+        "LicenseExpiration": 123,
+        "MedCertExpiration": 123,
+        "DriverStatus": "Clear",
+        "StateName": "Illinois",
+        "DriverStateId": null,
+        "Endorsements": [],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704871688,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704918817,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 12,
+        "DriverName": "Mike Check",
+        "LicenseNumber": "123",
+        "LicenseStatus": "Suspended",
+        "DriverLicenseClass": "Motorcycle",
+        "DriverLicenseClassId": null,
+        "CdlType": "A",
+        "LicenseExpiration": 123,
+        "MedCertExpiration": 123,
+        "DriverStatus": "Clear",
+        "StateName": "Illinois",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 1,
+                "Title": "T",
+                "Notes": "Missouri CDL Doubles-Triples"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704918904,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": null,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 15,
+        "DriverName": "Chips2",
+        "LicenseNumber": "123abcdefge",
+        "LicenseStatus": "Suspended",
+        "DriverLicenseClass": "Motorcycle",
+        "DriverLicenseClassId": null,
+        "CdlType": "C",
+        "LicenseExpiration": 35284,
+        "MedCertExpiration": 23424,
+        "DriverStatus": "Clear",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704947108,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": null,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 16,
+        "DriverName": "Bad Jerry5",
+        "LicenseNumber": "1231231239",
+        "LicenseStatus": "Revoked",
+        "DriverLicenseClass": "CDL",
+        "DriverLicenseClassId": null,
+        "CdlType": "B",
+        "LicenseExpiration": 1705474800,
+        "MedCertExpiration": 1705388400,
+        "DriverStatus": "Acceptable",
+        "StateName": "Missouri",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 1,
+                "Title": "T",
+                "Notes": "Missouri CDL Doubles-Triples"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704947603,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1705032917,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 17,
+        "DriverName": "Restriction Test",
+        "LicenseNumber": "4123",
+        "LicenseStatus": "Valid",
+        "DriverLicenseClass": "Motorcycle",
+        "DriverLicenseClassId": null,
+        "CdlType": "A",
+        "LicenseExpiration": 123,
+        "MedCertExpiration": 123,
+        "DriverStatus": "Clear",
+        "StateName": "Illinois",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 1,
+                "Title": "T",
+                "Notes": "Missouri CDL Doubles-Triples"
+            },
+            {
+                "DriverEndorsementId": 2,
+                "Title": "P",
+                "Notes": "Missouri CDL Passenger Vehicles"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [
+            {
+                "DriverRestrictionId": 2,
+                "Title": "Intermediate License",
+                "Notes": "May drive only when accompanied in the front seat by a licensed driver"
+            }
+        ],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704950781,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704951678,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    },
+    {
+        "DriverLicenseInfoId": 3,
+        "DriverName": "Sloppy Joe",
+        "LicenseNumber": "99999",
+        "LicenseStatus": "Valid",
+        "DriverLicenseClass": "CDL",
+        "DriverLicenseClassId": null,
+        "CdlType": "A",
+        "LicenseExpiration": 324234,
+        "MedCertExpiration": 234234,
+        "DriverStatus": "Clear",
+        "StateName": "Illinois",
+        "DriverStateId": null,
+        "Endorsements": [
+            {
+                "DriverEndorsementId": 1,
+                "Title": "T",
+                "Notes": "Missouri CDL Doubles-Triples"
+            },
+            {
+                "DriverEndorsementId": 2,
+                "Title": "P",
+                "Notes": "Missouri CDL Passenger Vehicles"
+            }
+        ],
+        "DriverEndorsementIds": null,
+        "Restrictions": [],
+        "DriverRestrictionIds": null,
+        "CreatedAt": 1704746250,
+        "CreatedBy": "",
+        "CreatedOffset": "",
+        "UpdatedAt": 1704987088,
+        "UpdatedBy": "",
+        "UpdatedOffset": "",
+        "DeletedAt": null,
+        "DeletedBy": "",
+        "DeletedOffset": ""
+    }
+]
+
+export const driverMatrixColumns = [
+    // {
+    //     header: "ID",
+    //     accessorKey: "ID",
+    //     enableHiding: true,
+    //     accessorFn: (row: any) => row.DriverLicenseInfoId,
+    //     size: 75,
+    // },
+    {
+        header: "Name",
+        accessorKey: "name",
+        accessorFn: (row: any) => row.DriverName,
+        size: 75,
+    },
+    {
+        header: 'Driver Status',
+        accessorKey: 'driverStatus',
+        accessorFn: (row: any) => row.DriverStatus,
+        muiTableBodyCellProps: {
+            align: 'left',
+            style: { color: 'green' },
+            fontWeight: 'bold',
+        },
+        Cell: (props: any) => (
+            <div style={{fontWeight: '500' }}>
+                {props.row.original.DriverStatus}
+            </div>
+        ),
+        size: 75,
+    },
+    {
+        header: 'Endorsements',
+        accessorKey: 'endorsements',
+        accessorFn: (row: any) => {
+            const totalEndorsements = row.Endorsements.length
+            const endorsements = row.Endorsements.map((endorsement: any) => endorsement.Title).join(', ') || '0'
+            return (
+                <Tooltip title={endorsements} placement="right">
+                    {totalEndorsements || '0'}
+                </Tooltip>
+            )
+        },
+        size: 75,
+    },
+    {
+        header: 'License Status',
+        accessorKey: 'licenseStatus',
+        accessorFn: (row: any) => row.LicenseStatus,
+        size: 75,
+    },
+    {
+        header: 'State',
+        accessorKey: 'StateName',
+        accessorFn: (row: any) => row.StateName,
+        size: 75,
+    },
+    {
+        header: 'Last Updated',
+        accessorKey: 'UpdatedAt',
+        accessorFn: (row: any) => row.UpdatedAt,
+        Cell: (props: any) => ((props.row.original.UpdatedAt)),
+        size: 75,
+    },
+];
