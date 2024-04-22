@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Marahuyo';
+    src: url('../fonts/Marahuyo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'tagalog_stylizedregular';
+    src: url('../font/tagstyle-webfont.eot');
+    src: url('../font/tagstyle-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/tagstyle-webfont.woff2') format('woff2'),
+        url('../font/tagstyle-webfont.woff') format('woff'),
+        url('../font/tagstyle-webfont.ttf') format('truetype'),
+        url('../font/tagstyle-webfont.svg#tagalog_stylizedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} *
+
+/*  Baybayin styles  */
+.baybayin {
+    font-family: 'Marahuyo';
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+
+    /* sprites.less reset */
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    margin-top: 0;
+}

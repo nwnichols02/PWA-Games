@@ -4,9 +4,9 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
-
+import "../styles/baybayin.css"
 
 const Home = () => {
 
@@ -29,6 +29,10 @@ const Home = () => {
                 m={8}
             >
                 <Card>
+                    <p className='baybayin'>
+                    AN+ Ak+lt+ ni mor+mon+ Ult+ n Isinult+ N+ kmy+ ni mor+mon+ s mN lminN+ hinNo mul s mN lmin ni nep+hi
+                        {/* AN+ Ak+lt+ ni mor+mon+ Ult+ n Isinult+ N+ kmy+ ni mor+mon+ s mN lminN+ hinNo mul s mN lmin ni nep+hi */}
+                    </p>
                     <Grid
                         container
                         display={'flex'}
